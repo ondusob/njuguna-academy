@@ -166,14 +166,7 @@ table th { background-color: var(--primary-blue); color: white; }
 .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; }
 
 /* --- Responsive --- */
-@media (max-width: 768px) {
-    nav ul { display: none; flex-direction: column; position: absolute; top: 70px; left: 0; width: 100%; background: white; padding: 20px; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
-    nav ul.show { display: flex; }
-    nav ul li { margin: 10px 0; }
-    .hamburger { display: block; }
-    .hero-content h2 { font-size: 2.2rem; }
-    .contact-container { grid-template-columns: 1fr; }
-}
+
 /* ==================== RESPONSIVE NAVBAR ==================== */
 .nav-container {
     display: flex;
@@ -265,6 +258,73 @@ table th { background-color: var(--primary-blue); color: white; }
 }
 
 /* Extra small phones */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 1rem 4%;
+    }
+}
+/* ==================== MOBILE NAVBAR (FINAL CLEAN VERSION) ==================== */
+
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Desktop menu */
+#nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+/* Mobile styles */
+@media (max-width: 992px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    #nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+
+    #nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    #nav-menu ul {
+        flex-direction: column;
+        padding: 1.5rem 5%;
+        gap: 0;
+    }
+
+    #nav-menu ul li {
+        border-bottom: 1px solid #eee;
+    }
+
+    #nav-menu ul li a {
+        display: block;
+        padding: 1rem 0;
+    }
+}
+
+/* Small phones */
 @media (max-width: 480px) {
     .nav-container {
         padding: 1rem 4%;
