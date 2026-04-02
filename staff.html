@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Staff - ACK Bishop Njuguna Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #004a99;
+            --accent-gold: #ffcc00;
+            --text-dark: #2c3e50;
+            --text-light: #5a6c7d;
+            --white: #ffffff;
+            --bg-light: #f4f7fa;
+        }
+
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: var(--white); overflow-x: hidden; }
+
+        /* --- NAVBAR --- */
+        header {
+            background-color: var(--white);
+            position: sticky; top: 0; z-index: 2000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo { text-decoration: none; display: flex; flex-direction: column; }
+        .logo h1 { margin: 0; font-size: 1.2rem; color: var(--primary-blue); font-weight: 800; text-transform: uppercase; }
+        .logo span { font-size: 0.7rem; color: var(--text-light); font-weight: 600; }
+
+        nav ul { list-style: none; display: flex; align-items: center; gap: 15px; margin: 0; padding: 0; }
+        nav ul li a { text-decoration: none; color: var(--text-dark); font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover, nav ul li a.active { color: var(--primary-blue); }
+
+        .enroll-btn { background-color: var(--primary-blue); color: var(--white) !important; padding: 8px 18px; border-radius: 50px; }
+
+        .hamburger { display: none; font-size: 1.8rem; color: var(--primary-blue); cursor: pointer; }
+
+        /* --- STAFF SECTION --- */
+        section { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+        
+        .section-title { text-align: center; }
+        .section-title h2 { color: var(--primary-blue); font-size: 2rem; margin-bottom: 5px; }
+        .section-title div { width: 50px; height: 3px; background: var(--accent-gold); margin: 0 auto 30px; }
+
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .staff-card {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 4px solid var(--primary-blue);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .staff-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        .staff-card img {
+            width: 140px; height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+
+        .staff-card h4 { margin: 10px 0 5px; color: var(--primary-blue); font-size: 1.2rem; }
+        .staff-card .role { color: var(--text-dark); font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; display: block; }
+        .staff-card .bio { font-size: 0.85rem; color: var(--text-light); line-height: 1.4; }
+
+        /* --- MOBILE NAVIGATION --- */
+        @media (max-width: 992px) {
+            .hamburger { display: block; position: relative; z-index: 3001; }
+            nav {
+                position: fixed; top: 0; right: -100%;
+                width: 80%; height: 100vh; background: var(--white);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: 0.3s ease-in-out; z-index: 3000;
+                overflow-y: auto;
+            }
+            nav.active { right: 0; }
+            nav ul { flex-direction: column; padding: 100px 20px; align-items: center; gap: 25px; }
+            .enroll-btn { width: 100%; text-align: center; }
+        }
+
+        /* --- CALL BUTTON --- */
+        .mobile-call-btn {
+            position: fixed; bottom: 20px; right: 20px;
+            background-color: #25d366; color: white;
+            padding: 12px 20px; border-radius: 50px;
+            text-decoration: none; font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 2500; display: flex; align-items: center;
+            gap: 10px; transition: 0.3s ease;
+            opacity: 0; transform: translateY(100px); pointer-events: none;
+        }
+        .mobile-call-btn.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <h1>ACK Bishop Njuguna</h1>
+                <span>Academy & Junior School</span>
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="staff.html" class="active">Staff</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="admissions.html" class="enroll-btn">Enroll Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="section-title">
+            <h2>Our Dedicated Staff</h2>
+            <div></div>
+        </div>
+        
+        <div class="staff-grid">
+            <div class="staff-card">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300" alt="Headteacher">
+                <h4>JB Mutinda</h4>
+                <span class="role">Headteacher</span>
+                <p class="bio">M.Ed in Leadership with over 20 years of academic excellence and mentorship.</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="https://images.unsplash.com/photo-1544168190-79c17527004f?w=300" alt="Deputy">
+                <h4>Margaret Kamau</h4>
+                <span class="role">Deputy Principal</span>
+                <p class="bio">Leading specialist in CBC Curriculum implementation and student welfare.</p>
+            </div>
+
+            <div class="staff-card">
+                <img src="https://images.unsplash.com/photo-1580894732234-83e2e984d6d2?w=300" alt="Teacher">
+                <h4>Ms. Faith Mutua</h4>
+                <span class="role">Head of Sciences</span>
+                <p class="bio">JSS Integrated Science Lead focused on practical, hands-on learning experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <a href="tel:+254798649162" class="mobile-call-btn" id="mobileCallBtn">
+        <i class="fas fa-phone-alt"></i> Call Us Now
+    </a>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        const callBtn = document.getElementById('mobileCallBtn');
+        const navLinks = document.querySelectorAll('#nav-menu a');
+
+        // Toggle Function
+        function toggleMenu() {
+            const isOpen = navMenu.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            
+            if (isOpen) {
+                icon.classList.replace('fa-bars', 'fa-times');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Close menu on link click (Fixes the "Freeze" issue)
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && e.target !== hamburger) {
+                toggleMenu();
+            }
+        });
+
+        // Scroll Logic for Call Button
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 992) {
+                if (window.scrollY > 300) {
+                    callBtn.classList.add('show');
+                } else {
+                    callBtn.classList.remove('show');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

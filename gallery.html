@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - ACK Bishop Njuguna Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #004a99;
+            --accent-gold: #ffcc00;
+            --text-dark: #2c3e50;
+            --text-light: #5a6c7d;
+            --white: #ffffff;
+            --bg-gray: #f4f7fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background-color: #f8f9fa;
+            overflow-x: hidden;
+        }
+
+        /* ==================== NAVBAR ==================== */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 12px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 1.35rem;
+            color: var(--primary-blue);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .logo span {
+            font-size: 0.78rem;
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        /* Desktop Navigation (DEFAULT) */
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-gold);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-blue);
+        }
+
+        .enroll-btn {
+            background-color: var(--primary-blue);
+            color: var(--white) !important;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.7rem;
+            color: var(--primary-blue);
+        }
+
+        /* ==================== RESPONSIVE LOGIC ==================== */
+        @media (max-width: 992px) {
+            .hamburger { 
+                display: block; 
+            }
+
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Hidden on mobile by default */
+                width: 80%;
+                max-width: 320px;
+                height: 100vh;
+                background: var(--white);
+                box-shadow: -8px 0 25px rgba(0,0,0,0.2);
+                transition: right 0.4s ease-in-out;
+                z-index: 3000;
+                padding-top: 100px;
+            }
+
+            nav.active {
+                right: 0; /* Shown when hamburger is clicked */
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 30px;
+                align-items: center;
+            }
+
+            nav ul li a {
+                font-size: 1.25rem;
+            }
+        }
+
+        /* ==================== GALLERY CONTENT ==================== */
+        .gallery-section {
+            max-width: 1200px;
+            margin: 70px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-blue);
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+        }
+
+        .section-title div {
+            width: 70px;
+            height: 4px;
+            background: var(--accent-gold);
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: #fff;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 50px 20px 30px;
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <h1>ACK Bishop Njuguna</h1>
+                <span>Academy & Junior School</span>
+            </a>
+            
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="admissions.html" class="enroll-btn">Enroll Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="gallery-section">
+        <div class="section-title">
+            <h2>School Life in Photos</h2>
+            <div></div>
+        </div>
+        
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="images/Class Block Two.jpeg" alt="Class Block"></div>
+            <div class="gallery-item"><img src="images/Class Block.jpeg" alt="Classroom"></div>
+            <div class="gallery-item"><img src="images/Gate.jpeg" alt="School Gate"></div>
+            <div class="gallery-item"><img src="images/Lab Two.jpeg" alt="Science Lab"></div>
+            <div class="gallery-item"><img src="images/logo.jpg" alt="School Logo"></div>
+            <div class="gallery-item"><img src="images/Van.jpeg" alt="School Transport"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ACK Bishop Njuguna Academy & Junior School. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = hamburger.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+    </script>
+</body>
+</html>
