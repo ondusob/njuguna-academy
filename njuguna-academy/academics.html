@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - ACK Bishop Njuguna Academy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #004a99;
+            --accent-gold: #ffcc00;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* NAVBAR STYLING - Ensuring Visibility */
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky; /* Keeps it at the top while scrolling */
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .logo span {
+            font-size: 0.8rem;
+            display: block;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent-gold);
+        }
+
+        .enroll-btn {
+            background: var(--accent-gold);
+            color: var(--primary-blue) !important;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        /* SECTION STYLING */
+        section {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-blue);
+            border-bottom: 3px solid var(--accent-gold);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        /* TABLE STYLING */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* MOBILE HAMBURGER (Hidden on Desktop) */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { display: none; } /* Standard mobile behavior: hide menu until clicked */
+            .hamburger { display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <h1>ACK Bishop Njuguna</h1>
+                <span>Academy & Junior School</span>
+            </div>
+            
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <nav id="nav-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html" class="active">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="staff.html">Staff</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="admissions.html" class="enroll-btn">Enroll Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section>
+        <div class="section-title">
+            <h2>Academic Excellence</h2>
+            <div></div>
+        </div>
+        
+        <h3>CBC Curriculum & Junior Secondary</h3>
+        <p>We are fully compliant with the Kenyan Competency-Based Curriculum (CBC). Our Junior Secondary School (JSS) offers a broad range of subjects including Pre-Technical Studies, Integrated Science, and Creative Arts.</p>
+
+        <div class="grid-3">
+            <div class="card">
+                <h4>Primary School</h4>
+                <p>Grades 1-6 focusing on core literacies and creative thinking.</p>
+            </div>
+            <div class="card">
+                <h4>Junior Secondary</h4>
+                <p>Grade 7-9 with specialized labs and career guidance.</p>
+            </div>
+            <div class="card">
+                <h4>Co-Curricular</h4>
+                <p>Football, Music, Scouting, and Debate Club.</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 50px;">Term 1 2024 Calendar</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Event</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>School Opening</td>
+                    <td>8th January 2024</td>
+                </tr>
+                <tr>
+                    <td>Half Term Break</td>
+                    <td>28th Feb - 3rd March</td>
+                </tr>
+                <tr>
+                    <td>Parents Day</td>
+                    <td>15th March 2024</td>
+                </tr>
+                <tr>
+                    <td>Closing Date</td>
+                    <td>5th April 2024</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <script src="js/main.js"></script>
+    <script>
+        // ... your existing hamburger menu code ...
+
+        // ADD THIS FOR THE SCROLL BUTTON:
+        const callBtn = document.getElementById('mobileCallBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 992) {
+                if (window.scrollY > 300) {
+                    callBtn.classList.add('show');
+                } else {
+                    callBtn.classList.remove('show');
+                }
+            }
+        });
+    </script>
+</body>
+
+</body>
+</html>

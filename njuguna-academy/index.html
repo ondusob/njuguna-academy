@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACK Bishop Njuguna Academy | Home</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+:root {
+    --primary-blue: #004a99;
+    --accent-gold: #ffcc00;
+    --text-dark: #2c3e50;
+    --text-light: #5a6c7d;
+    --white: #ffffff;
+    --bg-gray: #f4f7fa;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* ===== NAVBAR ===== */
+header {
+    background: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 45px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--primary-blue);
+}
+
+.logo span {
+    font-size: 0.7rem;
+    color: var(--text-light);
+}
+
+/* Desktop Menu */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.enroll-btn {
+    background: var(--primary-blue);
+    color: white !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ===== MOBILE NAV ===== */
+@media (max-width: 992px) {
+
+    .hamburger {
+        display: block;
+        z-index: 4000;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background: white;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 80px;
+
+        box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+        transition: right 0.3s ease;
+
+        z-index: 3500;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: 20px;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Prevent background scroll */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* ===== HERO ===== */
+.hero {
+    background: linear-gradient(rgba(0,74,153,0.8), rgba(0,74,153,0.8)),
+                url('images/hero-campus.jpg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h2 { margin: 0; }
+
+.btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.btn-secondary {
+    background: var(--accent-gold);
+    color: var(--primary-blue);
+}
+
+.btn-primary {
+    border: 2px solid white;
+    color: white;
+}
+
+/* ===== CONTENT ===== */
+section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card img {
+    width: 100%;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav-container">
+
+        <!-- CLICKABLE LOGO -->
+        <a href="index.html" class="logo">
+            <img src="images/logo.png" alt="School Logo">
+            <div>
+                <h1>ACK Bishop Njuguna</h1>
+                <span>Academy & Junior School</span>
+            </div>
+        </a>
+
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav id="nav-menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="staff.html">Staff</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="admissions.html" class="enroll-btn">Enroll</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<section class="hero">
+    <h2>Nurturing Excellence & Faith</h2>
+    <p>Quality CBC education in Thika</p>
+    <a href="admissions.html" class="btn btn-secondary">Enroll</a>
+    <a href="contact.html" class="btn btn-primary">Visit</a>
+</section>
+
+<section>
+    <div class="grid-3">
+        <div class="card">
+            <img src="images/Class Block.jpeg">
+            <p>Modern Classrooms</p>
+        </div>
+        <div class="card">
+            <img src="images/Lab One.jpeg">
+            <p>Science Labs</p>
+        </div>
+        <div class="card">
+            <img src="images/Van.jpeg">
+            <p>School Transport</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 ACK Bishop Njuguna Academy</p>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+const body = document.body;
+
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    body.classList.toggle('menu-open');
+
+    const icon = hamburger.querySelector('i');
+    navMenu.classList.contains('active')
+        ? icon.classList.replace('fa-bars', 'fa-times')
+        : icon.classList.replace('fa-times', 'fa-bars');
+});
+
+document.querySelectorAll('#nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        body.classList.remove('menu-open');
+        hamburger.querySelector('i').classList.replace('fa-times', 'fa-bars');
+    });
+});
+</script>
+
+</body>
+</html>
