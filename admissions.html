@@ -76,14 +76,6 @@
             color: var(--accent-gold);
         }
 
-        .enroll-btn {
-            background: var(--accent-gold);
-            color: var(--primary-blue) !important;
-            padding: 8px 18px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
         .hamburger {
             display: none;
             cursor: pointer;
@@ -96,7 +88,7 @@
             .hamburger { display: block; }
 
             nav {
-                display: none; /* Hidden by default */
+                display: none; 
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -106,7 +98,6 @@
                 box-shadow: 0 5px 10px rgba(0,0,0,0.2);
             }
 
-            /* This shows the menu when JS toggles the 'active' class */
             nav.active {
                 display: block;
             }
@@ -200,7 +191,6 @@
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="news.html">News</a></li>
-                    <li><a href="admissions.html" class="enroll-btn">Enroll Now</a></li>
                 </ul>
             </nav>
         </div>
@@ -249,14 +239,12 @@
     </main>
 
     <script>
-        // MOBILE MENU TOGGLE LOGIC
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
 
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             
-            // Toggle between bars and X icon
             const icon = hamburger.querySelector('i');
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
@@ -267,7 +255,6 @@
             }
         });
 
-        // Close menu if user clicks anywhere outside the nav
         document.addEventListener('click', (e) => {
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
