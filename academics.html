@@ -64,7 +64,7 @@
             font-weight: 600;
         }
 
-        /* Desktop Nav Styles (Visible by default) */
+        /* Desktop Nav Styles */
         nav ul {
             list-style: none;
             display: flex;
@@ -103,19 +103,6 @@
             width: 100%;
         }
 
-        .enroll-btn {
-            background-color: var(--primary-blue);
-            color: var(--white) !important;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: transform 0.2s;
-        }
-
-        .enroll-btn:hover {
-            transform: scale(1.05);
-        }
-
         .hamburger {
             display: none;
             cursor: pointer;
@@ -123,7 +110,7 @@
             color: var(--primary-blue);
         }
 
-        /* ==================== MOBILE NAVIGATION (Under 992px) ==================== */
+        /* ==================== MOBILE NAVIGATION ==================== */
         @media (max-width: 992px) {
             .hamburger {
                 display: block;
@@ -133,7 +120,7 @@
             nav {
                 position: fixed;
                 top: 0;
-                right: -100%; /* Hidden off-screen */
+                right: -100%;
                 width: 280px;
                 height: 100vh;
                 background: var(--white);
@@ -150,10 +137,6 @@
             nav ul {
                 flex-direction: column;
                 gap: 20px;
-            }
-
-            nav ul li a {
-                font-size: 1.1rem;
             }
         }
 
@@ -272,7 +255,7 @@
                     <li><a href="news.html">News</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="admissions.html" class="enroll-btn">Enroll Now</a></li>
+                    <!-- Enroll Now button removed -->
                 </ul>
             </nav>
         </div>
@@ -342,7 +325,6 @@
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             
-            // Toggle icon between bars and times (X)
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
@@ -352,7 +334,7 @@
             }
         });
 
-        // Close menu when clicking outside (optional but helpful)
+        // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
                 navMenu.classList.remove('active');
